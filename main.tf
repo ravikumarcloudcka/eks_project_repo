@@ -15,9 +15,13 @@ module "my_eks_cluster" {
 module "my_eks_nodegroup" {
 
   source = "github.com/ravikumarcloudcka/eks_module_repo//eks-nodegroup"
-  name            = var.node_group_name
+  name = var.name
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
   subnet_ids = var.subnet_ids
-
+  min_size     = var.min_size
+  max_size     = var.max_size
+  desired_size = var.desired_size
+  instance_types = var.instance_types
+  capacity_type  = var.capacity_type
 }
